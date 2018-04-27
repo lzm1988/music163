@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.ornobug.music163.dao.Music163CommentsDao">
+
+    <!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="top.ornobug.music163.domain.Music163Comments">
+        <result column="id" property="id"/>
+        <result column="pendant_data" property="pendantData"/>
+        <result column="liked_count" property="likedCount"/>
+        <result column="comment_id" property="commentId"/>
+        <result column="liked" property="liked"/>
+        <result column="time" property="time"/>
+        <result column="content" property="content"/>
+        <result column="song_id" property="songId"/>
+        <result column="comment_user_id" property="commentUserId"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="all_column">
+        id,
+        pendant_data,
+        liked_count,
+        comment_id,
+        liked,
+        time,
+        content,
+        song_id,
+        comment_user_id
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO music163_comments
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">id,</if>
+            <if test="pojo.pendantData != null">pendant_data,</if>
+            <if test="pojo.likedCount != null">liked_count,</if>
+            <if test="pojo.commentId != null">comment_id,</if>
+            <if test="pojo.liked != null">liked,</if>
+            <if test="pojo.time != null">time,</if>
+            <if test="pojo.content != null">content,</if>
+            <if test="pojo.songId != null">song_id,</if>
+            <if test="pojo.commentUserId != null">comment_user_id,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">#{pojo.id},</if>
+            <if test="pojo.pendantData != null">#{pojo.pendantData},</if>
+            <if test="pojo.likedCount != null">#{pojo.likedCount},</if>
+            <if test="pojo.commentId != null">#{pojo.commentId},</if>
+            <if test="pojo.liked != null">#{pojo.liked},</if>
+            <if test="pojo.time != null">#{pojo.time},</if>
+            <if test="pojo.content != null">#{pojo.content},</if>
+            <if test="pojo.songId != null">#{pojo.songId},</if>
+            <if test="pojo.commentUserId != null">#{pojo.commentUserId},</if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO music163_comments(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.pendantData},
+            #{pojo.likedCount},
+            #{pojo.commentId},
+            #{pojo.liked},
+            #{pojo.time},
+            #{pojo.content},
+            #{pojo.songId},
+            #{pojo.commentUserId}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="update">
+        UPDATE music163_comments
+        <set>
+            <if test="pojo.id != null">id = #{pojo.id},</if>
+            <if test="pojo.pendantData != null">pendant_data = #{pojo.pendantData},</if>
+            <if test="pojo.likedCount != null">liked_count = #{pojo.likedCount},</if>
+            <if test="pojo.commentId != null">comment_id = #{pojo.commentId},</if>
+            <if test="pojo.liked != null">liked = #{pojo.liked},</if>
+            <if test="pojo.time != null">time = #{pojo.time},</if>
+            <if test="pojo.content != null">content = #{pojo.content}</if>
+            <if test="pojo.songId != null">song_id = #{pojo.songId}</if>
+            <if test="pojo.commentUserId != null">comment_user_id = #{pojo.commentUserId}</if>
+        </set>
+        WHERE id = #{pojo.id}
+    </update>
+
+    <!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT
+        <include refid="all_column"/>
+        FROM music163_comments
+        <where>
+            <if test="pojo.id != null">AND id = #{pojo.id}</if>
+            <if test="pojo.pendantData != null">AND pendant_data = #{pojo.pendantData}</if>
+            <if test="pojo.likedCount != null">AND liked_count = #{pojo.likedCount}</if>
+            <if test="pojo.commentId != null">AND comment_id = #{pojo.commentId}</if>
+            <if test="pojo.liked != null">AND liked = #{pojo.liked}</if>
+            <if test="pojo.time != null">AND time = #{pojo.time}</if>
+            <if test="pojo.content != null">AND content = #{pojo.content}</if>
+            <if test="pojo.songId != null">AND song_id = #{pojo.songId}</if>
+            <if test="pojo.commentUserId != null">AND comment_user_id = #{pojo.commentUserId}</if>
+        </where>
+    </select>
+
+    <!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM music163_comments
+        WHERE id = #{pojo.id}
+    </delete>
+</mapper>
